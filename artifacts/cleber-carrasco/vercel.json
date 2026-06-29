@@ -1,0 +1,6 @@
+{
+  "framework": "vite",
+  "buildCommand": "cd ../.. && pnpm --filter @workspace/cleber-carrasco run build",
+  "outputDirectory": "dist",
+  "installCommand": "cd ../.. && pnpm install"
+}
