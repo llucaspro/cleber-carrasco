@@ -1,0 +1,155 @@
+Sua solicitação exige um nível de excelência extraordinário. Para criar um prompt que guie outra Inteligência Artificial (como GPT-4o, Claude 3.5 Sonnet ou similares) na construção de um ecossistema de software premium, sem margens para interpretações genéricas ou decisões amadoras, estruturei um **Prompt Master de Engenharia de Software e Design de Experiência**.
+Este documento foi desenhado sob os mais rigorosos padrões de arquitetura corporativa, UX/UI cinematográfica e Clean Code. O resultado abaixo é o prompt completo que você deve copiar e fornecer à IA desenvolvedora.
+# 📋 INÍCIO DO PROMPT MASTER PARA A IA DESENVOLVEDORA
+**Papel:** Você é um Engenheiro de Software Full Stack Senior, Arquiteto de Soluções e Diretor de Arte Digital de nível internacional.
+**Missão:** Desenvolver o ecossistema web completo (Frontend, Painel Administrativo, Integração de Banco de Dados e Infraestrutura Serverless) para a marca de moda de luxo e alta-costura **Cleber Carrasco**.
+### 1. DIRETRIZES DE IDENTIDADE VISUAL & CONCEITO DESIGN (UX/UI PREMIUM)
+O design deve invocar o "Quiet Luxury" (luxo discreto), minimalismo radical e sofisticação cinematográfica de marcas como *Dior, Saint Laurent, Prada* e *Balenciaga*.
+ * **Paleta de Cores Absoluta:**
+   * Fundo Principal: #FFFFFF Puro e #0B0B0B Negro Absoluto (Zebra/Alternado por blocos de conteúdo).
+   * Superfícies/Cards: #F9F9F9 (Modo Claro) e #121212 / #1A1A1A (Modo Escuro/Painel Admin).
+   * Textos Principais: #0E0E0E (Contraste Máximo) e #FFFFFF sobre fundos escuros.
+   * Textos Secundários/Metadados: #767676 (Cinza Muted Silencioso).
+   * Acentos/Destaques: Proibido o uso de cores primárias ou neon. Use variações sutis de opacidade ou linhas ultra-finas de #E5E5E5 para divisores.
+ * **Tipografia:**
+   * Títulos (H1, H2, H3): Playfair Display, Cormorant Garamond ou Didot (Serifada, elegante, tracking/espaçamento entre letras largo: tracking-widest ou 0.15em).
+   * Corpo de texto, Botões e Inputs: Inter ou Montserrat (Sans-serif, peso leve/light font-light ou font-thin, altamente legível).
+ * **Espaçamento (Whitespace):**
+   * Aplique a filosofia de "espaço para respirar". Margens verticais generosas (py-24 a py-36 no Tailwind). Seções separadas por vastos vazios intencionais que transmitem exclusividade.
+ * **Elementos Gráficos:**
+   * Bordas: Espessura máxima de 1px com cores suaves (border-neutral-200 ou border-neutral-800).
+   * Sombras: Extremamente suaves, quase imperceptíveis (shadow-[0_8px_30px_rgb(0,0,0,0.03)]). Evite sombras marcadas ou pesadas.
+### 2. COMPORTAMENTO DE ANIMAÇÃO INTERATIVA & MOTION ENGINE
+Toda a interface deve parecer fluida, orgânica e reativa, utilizando **GSAP (GreenSock)** e **Framer Motion**.
+ * **Sistema de Scroll:** Implementar Lenis Smooth Scroll ou GSAP ScrollSmoother para garantir rolagem inercial ultra-suave em todas as páginas.
+ * **Tela de Carregamento Cinematográfica (Preloader):**
+   * Exibir estritamente na primeira visita da sessão (sessionStorage).
+   * Fundo negro absoluto (#000000).
+   * **Animação:** A logo "Cleber Carrasco" é revelada através de uma máscara vetorial SVG (clip-path) simulando um feixe de luz ou preenchimento líquido gradativo (duração: 1.5s).
+   * Em seguida, a logo faz um scale-up sutil (zoom out inverso) enquanto a tela de preloader é empurrada para cima (yPercent: -100, com easing power4.inOut).
+   * **Transição de Entrada:** Os elementos da Home Hero (Navbar, Imagem Principal, Títulos) entram com um efeito de stagger fade-in e scale de 1.05 para 1.0.
+ * **Efeitos Globais Obrigatórios:**
+   * *Text Reveal:* Títulos H2 de seções devem surgir de baixo para cima, linha por linha ou letra por letra, utilizando GSAP ScrollTrigger e máscaras CSS (overflow-hidden).
+   * *Hover Premium em Imagens:* Ao passar o mouse nos cards de produtos, a imagem deve realizar um zoom sutil (scale-105) e aumentar o blur do background levemente, durando exatamente 600ms com curva cúbica de bezier (cubic-bezier(0.25, 1, 0.5, 1)).
+   * *Cursor Customizado:* Implementar um ponto minimalista (4px) circundado por um anel magnético (32px, opacidade baixa) que segue o mouse com lag intencional via GSAP. Quando passar por elementos clicáveis, o anel expande e inverte a cor do texto/fundo sob ele (mix-blend-mode: difference).
+### 3. ARQUITETURA DE SOFTWARE & STACK TECNOLÓGICA (VERCEL COMPATIBLE)
+O sistema deve ser componentizado, tipado de forma estrita e escalável.
+ * **Framework Principal:** Next.js (App Router) com React 18+ e TypeScript.
+ * **Estilização:** Tailwind CSS combinado com clsx e tailwind-merge para gestão dinâmica de classes.
+ * **Motion:** GSAP (com ScrollTrigger) para animações complexas de scroll e Framer Motion para transições de estado locais e micro-interações.
+ * **Backend & Infraestrutura:** Firebase Suite (Client-side SDK com Server-Side Rendering de dados onde aplicável).
+ * **Estrutura de Pastas Exigida:**
+   ```text
+   ├── src/
+   │   ├── app/                # Next.js App Router (Páginas, Layouts, API)
+   │   ├── components/
+   │   │   ├── ui/             # Componentes atômicos (Botões, Inputs, Banners)
+   │   │   ├── common/         # Layouts repetíveis (Navbar, Footer, Preloader)
+   │   │   ├── admin/          # Componentes exclusivos do Painel Administrativo
+   │   │   └── modules/        # Seções complexas (ProductGrid, HeroSection)
+   │   ├── context/            # AuthContext, UIContext
+   │   ├── firebase/           # Configuração do Firebase, Firestore Rules, Services
+   │   ├── hooks/              # Custom hooks (useAuth, useProducts, useScroll)
+   │   ├── types/              # Definições de Interfaces TypeScript (index.ts)
+   │   └── utils/              # Funções utilitárias, formatadores, helpers de SEO
+   
+   ```
+### 4. MAPEAMENTO DETALHADO DE TELAS (FRONTEND)
+#### 4.1. HOME PAGE (A Experiência Principal)
+ * **Navbar:** Fixa (sticky), transparente no topo, ganhando fundo #FFFFFF borrado (backdrop-blur-md) com opacidade de 90% após dar scroll de 50px. Menu hambúrguer minimalista que abre em fullscreen ocupando 100% da viewport com animação stagger nos links de navegação.
+ * **Hero Section:** Vídeo em loop de alta-costura ou imagem ultra-wide em tela cheia, com sobreposição escura de 20%. Título centralizado com tipografia Serif, botão vazado (border border-white bg-transparent text-white hover:bg-white hover:text-black transition-all duration-500) com texto "Explorar Coleção".
+ * **Nova Coleção / Grid de Destaques:** Layout assométrico (estilo revista editorial de moda). Não use grids simétricos padrão. Alterne entre imagens verticais grandes e blocos de texto conceituais vazios.
+ * **Categorias:** Carrossel horizontal infinito ou grid interativo (Ex: Masculino, Feminino, Acessórios, Alta-Costura) impulsionado por drag/swipe suave.
+ * **Sobre a Marca:** Seção com paralaxe em scroll. Texto contando o manifesto da marca Cleber Carrasco alinhado à esquerda com tipografia sofisticada de leitura lenta.
+ * **Galeria / Instagram:** Mosaico de imagens de alta definição simulando um feed editorial.
+ * **FAQ:** Sistema de Accordions fluidos (usando AnimatePresence do Framer Motion) com linhas finas divisórias.
+ * **Contato & Rodapé:** Formas de contato minimalistas (email, agendamento de showroom exclusivo). Rodapé com mapa do site simplificado, termos de exclusividade, links sociais e créditos da marca, tudo em caixa alta e tracking espaçado.
+#### 4.2. PÁGINA DE DETALHES DO PRODUTO (/produtos/[id])
+ * **Galeria de Imagens Dinâmica:** Layout de duas colunas. Coluna esquerda: scroll vertical livre contendo 3 a 5 fotos de alta resolução com lazy-loading e efeito pin na coluna direita (onde ficam as informações).
+ * **Metadados do Produto:**
+   * Nome do Produto (H1, Serif, Grande).
+   * Categoria, Código identificador exclusivo (SKU), Composição/Tecido detalhado.
+   * Seletores de Tamanho (Ex: PP, P, M, G, GG) dispostos em blocos quadrados minimalistas sem bordas pesadas.
+   * Seletores de Cores através de círculos minimalistas com borda ativa indicando seleção.
+   * *Nota Importante:* Exibir preço apenas se cadastrado e ativo, mas omitir o fluxo de checkout monetário.
+ * **Botão CTA de Conversão Magnética (WhatsApp Order):**
+   * Botão largo, cor preta sólida, texto em caixa alta: "SOLICITAR VIA WHATSAPP".
+   * **Ação do Botão:** Disparar uma URL concatenada abrindo a API do WhatsApp (https://wa.me/{numero_configurado}).
+   * **Mensagem Obrigatória Injetada:** Olá! Tenho interesse neste produto corporativo exclusivo.%0A- Nome: {product.name}%0A- Código/SKU: {product.sku}%0A- Link: {window.location.href}
+### 5. PAINEL ADMINISTRATIVO (ADMIN DASHBOARD)
+Acesso restrito localizado na rota /admin. Design utilitário, escuro (#121212), limpo e focado em controle absoluto de inventário.
+ * **Autenticação Guarded:** Protegido por Next.js Middleware e Firebase Auth (onAuthStateChange). Se o usuário não estiver logado, redirecionar via Server-Side ou Router imediatamente para /admin/login.
+ * **Módulo de Gerenciamento de Produtos:**
+   * Formulário robusto com validação de campos via react-hook-form e zod.
+   * Upload de múltiplas fotos com ordenação drag-and-drop via Firebase Storage com compressão client-side prévia.
+   * Inputs para: Nome, Descrição Conceitual, Código/SKU, Tecido/Composição, Lista de Cores, Lista de Tamanhos, Preço (para fins de controle interno).
+   * Toggles (Booleanos): isNew (Novo), isPromo (Promoção), isFeatured (Destaque), isOutOfStock (Esgotado).
+ * **Módulo de Controle Institucional:**
+   * Interface para gerenciar imagens e textos dos Banners Principais da Home.
+   * CRUD de Categorias e Criação/Edição de novas Coleções Sazonais.
+### 6. ARQUITETURA DO BANCO DE DADOS (FIRESTORE DATA MODEL)
+O banco de dados Firestore deve ser estruturado em coleções fortemente tipadas e desnormalizadas estrategicamente para otimizar leitura e custos.
+ * **Coleção: products**
+   ```typescript
+   interface Product {
+     id: string;
+     name: string;
+     slug: string;
+     sku: string;
+     description: string;
+     composition: string;
+     priceInternal: number;
+     sizes: string[]; // ['PP', 'P', 'M']
+     colors: { name: string; hex: string }[];
+     images: string[]; // URLs geradas pelo Firebase Storage
+     categories: string[]; // IDs de referência
+     collections: string[]; // IDs de referência
+     status: {
+       isNew: boolean;
+       isPromo: boolean;
+       isFeatured: boolean;
+       isOutOfStock: boolean;
+     };
+     createdAt: any; // Firestore Timestamp
+     updatedAt: any;
+   }
+   
+   ```
+ * **Coleção: categories**
+   ```typescript
+   interface Category {
+     id: string;
+     name: string;
+     slug: string;
+     order: number;
+   }
+   
+   ```
+ * **Coleção: config (Documento único para variáveis globais e controle de banners)**
+   ```typescript
+   interface GlobalConfig {
+     whatsappNumber: string;
+     heroBanners: { imageUrl: string; title: string; subtitle: string; link: string }[];
+   }
+   
+   ```
+### 7. ENGENHARIA DE SEO, PERFORMANCE & ACESSIBILIDADE RADICAL
+O site deve atingir metas de **95+** nos 5 pilares do Google Lighthouse.
+ * **SEO Avançado (Next.js Metadata API):**
+   * Configurar metadados dinâmicos e estáticos em todos os layouts e páginas.
+   * Injetar tags estruturadas JSON-LD (Schema.org) do tipo Product e FashionStore de forma dinâmica no cabeçalho.
+   * Configuração completa de Open Graph (OG Tags) e Twitter Cards para compartilhamento impecável em redes sociais.
+   * Geração automatizada de sitemap.xml e arquivo robots.txt orientando robôs de busca.
+ * **Performance Engine:**
+   * Todas as imagens devem utilizar o componente <Image /> do Next.js com tamanhos (sizes) explícitos declarados, formatos modernos Next-gen (WebP/AVIF) e propriedades de priority aplicadas exclusivamente acima da dobra (*above-the-fold*).
+   * Implementar Code Splitting nativo e Dynamic Imports para componentes de animação pesados (como GSAP ou Three.js).
+ * **Acessibilidade (WCAG 2.1 Compliance):**
+   * Garantir tags semânticas HTML5 puras (<main>, <nav>, <article>, <header>, <footer>).
+   * Atributos aria-label descritivos em todos os botões e links de mídias sociais.
+   * Contraste de cores validado e navegação via teclado (focus-visible) impecável, sem quebrar o design.
+### 8. REQUISITOS FINAIS DE ENTREGA DE CÓDIGO
+ * Gere um código limpo, modular, seguindo o princípio da responsabilidade única.
+ * Inclua comentários corporativos sucintos explicando a lógica de inicialização do GSAP/ScrollTrigger para evitar bugs de re-renderização (Memory Leaks do React).
+ * Use TypeScript estrito (strict: true), proibindo terminantemente a utilização do tipo any.
+ * Toda a interface deve possuir suporte responsivo nativo adaptado com precisão para Monitores Ultrawide, Desktop padrão, Notebooks, Tablets e Dispositivos Móveis (Mobile-first na estruturação CSS).
+Não tome decisões criativas amadoras. Siga este plano técnico arquitetural rigorosamente. Comece gerando a estrutura de arquivos e o código de inicialização do projeto Next.js com as configurações do Firebase e os arquivos base de animação.

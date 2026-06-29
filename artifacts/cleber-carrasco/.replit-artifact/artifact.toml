@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Cleber Carrasco"
+version = "1.0.0"
+id = "artifacts/cleber-carrasco"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26061
+
+[services.development]
+run = "pnpm --filter @workspace/cleber-carrasco run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cleber-carrasco", "run", "build" ]
+publicDir = "artifacts/cleber-carrasco/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26061"
+BASE_PATH = "/"

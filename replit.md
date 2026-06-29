@@ -1,44 +1,63 @@
-# [Project name]
+# Cleber Carrasco
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Site oficial da marca de moda de luxo e alta-costura Cleber Carrasco — experiência cinematográfica com preloader animado, cursor customizado, animações GSAP e integração WhatsApp.
 
 ## Run & Operate
 
+- `pnpm --filter @workspace/cleber-carrasco run dev` — run the frontend (port auto-assigned)
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: React + Vite + Tailwind CSS + Wouter (routing)
+- Animations: GSAP (ScrollTrigger, preloader) + Framer Motion (page transitions)
 - API: Express 5
 - DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
 - Build: esbuild (CJS bundle)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
-
-## Architecture decisions
-
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- `artifacts/cleber-carrasco/` — main frontend (React + Vite)
+- `artifacts/cleber-carrasco/src/pages/` — Home, Colecao, Produto, Admin, AdminLogin
+- `artifacts/cleber-carrasco/src/data/products.ts` — mock product catalog
+- `artifacts/cleber-carrasco/src/components/` — Navbar, Footer, Preloader, CustomCursor
+- `artifacts/cleber-carrasco/public/logo-cleber-carrasco.png` — brand logo
+- `artifacts/api-server/` — Express API server
+- `lib/api-spec/openapi.yaml` — API contract (OpenAPI 3.1)
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- **Home** (`/`) — experiência cinematográfica completa com preloader, hero, grid editorial, categorias, manifesto da marca, galeria mosaico, FAQ e rodapé
+- **Coleção** (`/colecao`) — catálogo de 12 produtos de luxo com hover premium
+- **Produto** (`/produto/:id`) — detalhe com galeria, seletores de tamanho/cor, botão WhatsApp
+- **Admin** (`/admin`) — painel administrativo dark com gestão de produtos (localStorage)
+- **Admin Login** (`/admin/login`) — login mock: admin@clebercorrasco.com / admin123
+
+## Architecture decisions
+
+- Dados de produtos em localStorage para o admin (sem backend necessário para MVP)
+- Autenticação mock via sessionStorage no admin
+- Preloader GSAP exibido apenas na primeira visita por sessão (sessionStorage flag)
+- WhatsApp integration via `wa.me/5514997182001` com mensagem pré-formatada
+- Cursor customizado com GSAP lerp lag e mix-blend-mode: difference nos hover states
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Marca: Cleber Carrasco — moda de luxo brasileira, "Quiet Luxury"
+- WhatsApp: +55 14 99718-2001 (wa.me/5514997182001)
+- GitHub: https://github.com/llucaspro/cleber-carrasco
+- Paleta: #FFFFFF / #0B0B0B / #F9F9F9 / #121212 — sem cores primárias ou neon
+- Tipografia: Cormorant Garamond (serif) + Inter (sans-serif)
+- Radius: 0rem (bordas retas — estética de luxo)
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- O preloader usa sessionStorage "preloader_shown" — para testar novamente, limpe o sessionStorage no devtools
+- Admin mock auth: email=admin@clebercorrasco.com, senha=admin123, dados em localStorage
+- Logo no preloader usa `filter: invert(1)` para aparecer branca sobre fundo preto
 
 ## Pointers
 
