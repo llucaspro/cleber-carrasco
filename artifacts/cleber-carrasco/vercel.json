@@ -2,5 +2,5 @@
   "framework": "vite",
   "buildCommand": "cd ../.. && pnpm --filter @workspace/cleber-carrasco run build",
   "outputDirectory": "dist",
-  "installCommand": "cd ../.. && pnpm install"
+  "installCommand": "cd ../.. && pnpm install --no-frozen-lockfile"
 }
