@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
+import { Eye, EyeOff } from "lucide-react";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 
 export default function AdminLogin() {
   const [, setLocation] = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,7 +17,7 @@ export default function AdminLogin() {
       sessionStorage.setItem("admin_auth", "true");
       setLocation("/admin");
     } else {
-      setError("Credenciais inválidas. (Dica: admin@clebercarrasco.com / admin123)");
+      setError("Credenciais inválidas. Tente novamente.");
     }
   };
 
@@ -28,7 +29,7 @@ export default function AdminLogin() {
       className="min-h-screen bg-[#121212] flex items-center justify-center text-white px-6"
     >
       <CustomCursor />
-      
+
       <div className="w-full max-w-md">
         <div className="text-center mb-12">
           <h1 className="font-serif text-3xl tracking-[0.2em] font-light uppercase mb-4">
@@ -41,33 +42,43 @@ export default function AdminLogin() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Input 
-              type="email" 
+            <input
+              type="email"
               placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-transparent border-b border-[#333] border-t-0 border-l-0 border-r-0 rounded-none px-0 py-4 focus-visible:ring-0 focus-visible:border-white font-sans font-light tracking-wide text-white placeholder:text-[#444]"
+              className="w-full bg-transparent border-b border-[#333] py-4 focus:outline-none focus:border-white font-sans font-light tracking-wide text-white placeholder:text-[#444] transition-colors"
               data-cursor="text"
+              autoComplete="email"
             />
           </div>
-          <div>
-            <Input 
-              type="password" 
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
               placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-transparent border-b border-[#333] border-t-0 border-l-0 border-r-0 rounded-none px-0 py-4 focus-visible:ring-0 focus-visible:border-white font-sans font-light tracking-wide text-white placeholder:text-[#444]"
+              className="w-full bg-transparent border-b border-[#333] py-4 pr-10 focus:outline-none focus:border-white font-sans font-light tracking-wide text-white placeholder:text-[#444] transition-colors"
               data-cursor="text"
+              autoComplete="current-password"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 text-[#767676] hover:text-white transition-colors"
+              data-cursor="pointer"
+            >
+              {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            </button>
           </div>
 
           {error && (
-            <p className="font-sans text-xs text-red-500 tracking-wider">
+            <p className="font-sans text-xs text-red-400 tracking-wider">
               {error}
             </p>
           )}
 
-          <button 
+          <button
             type="submit"
             className="w-full mt-12 bg-white text-[#0B0B0B] font-sans text-xs tracking-[0.2em] uppercase py-5 hover:bg-[#E5E5E5] transition-colors"
             data-cursor="pointer"
