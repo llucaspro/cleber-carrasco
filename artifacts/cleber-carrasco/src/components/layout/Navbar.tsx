@@ -22,7 +22,15 @@ export function Navbar() {
 
   if (isAdmin) return null;
 
-  const navLinks = [
+  const desktopLinks = [
+    { name: "COLEÇÃO", href: "/colecao" },
+    { name: "LOOKBOOK", href: "/lookbook" },
+    { name: "SOBRE", href: "/sobre" },
+    { name: "CONTATO", href: "/contato" },
+  ];
+
+  const mobileLinks = [
+    { name: "HOME", href: "/" },
     { name: "COLEÇÃO", href: "/colecao" },
     { name: "LOOKBOOK", href: "/lookbook" },
     { name: "SOBRE", href: "/sobre" },
@@ -49,7 +57,7 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex gap-12">
-            {navLinks.map((link) => (
+            {desktopLinks.map((link) => (
               <Link key={link.name} href={link.href} className="group" data-cursor="pointer">
                 <span className={`font-sans text-xs tracking-[0.15em] font-light transition-colors duration-500 ${
                   !isScrolled && isHome ? "text-white/80 hover:text-white" : "text-[#767676] hover:text-[#0E0E0E]"
@@ -90,13 +98,13 @@ export function Navbar() {
               <X className="w-8 h-8" />
             </button>
 
-            <div className="flex flex-col gap-12 text-center">
-              {navLinks.map((link, i) => (
+            <div className="flex flex-col gap-10 text-center">
+              {mobileLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.1, duration: 0.5, ease: "easeOut" }}
+                  transition={{ delay: 0.1 + i * 0.08, duration: 0.5, ease: "easeOut" }}
                 >
                   <Link href={link.href} onClick={() => setIsMobileMenuOpen(false)}>
                     <span className="font-serif text-3xl tracking-[0.2em] text-white font-light uppercase">
