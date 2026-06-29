@@ -9,6 +9,9 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import Home from "@/pages/home";
 import Colecao from "@/pages/colecao";
 import Produto from "@/pages/produto";
+import Sobre from "@/pages/sobre";
+import Contato from "@/pages/contato";
+import Lookbook from "@/pages/lookbook";
 import AdminLogin from "@/pages/admin-login";
 import AdminDashboard from "@/pages/admin-dashboard";
 
@@ -21,6 +24,9 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/colecao" component={Colecao} />
         <Route path="/produto/:id" component={Produto} />
+        <Route path="/sobre" component={Sobre} />
+        <Route path="/contato" component={Contato} />
+        <Route path="/lookbook" component={Lookbook} />
         <Route path="/admin" component={AdminDashboard} />
         <Route path="/admin/login" component={AdminLogin} />
         <Route component={NotFound} />

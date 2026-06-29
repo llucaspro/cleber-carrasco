@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MOCK_PRODUCTS } from "@/data/products";
 import { Preloader } from "@/components/ui/Preloader";
+import { useLenis } from "@/hooks/useLenis";
 import {
   Accordion,
   AccordionContent,
@@ -17,6 +18,7 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  useLenis();
   const titleRefs = useRef<HTMLHeadingElement[]>([]);
   const heroRef = useRef<HTMLDivElement>(null);
 

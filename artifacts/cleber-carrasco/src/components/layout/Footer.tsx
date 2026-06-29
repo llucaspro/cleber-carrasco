@@ -19,6 +19,12 @@ export function Footer() {
           Alta Costura & Prêt-à-Porter — São Paulo, Brasil
         </p>
 
+        <nav className="flex flex-wrap justify-center gap-8 md:gap-16 mb-16 font-sans text-xs tracking-[0.2em] text-[#767676] uppercase font-light">
+          <a href="/colecao" className="hover:text-white transition-colors duration-300" data-cursor="pointer">Coleção</a>
+          <a href="/lookbook" className="hover:text-white transition-colors duration-300" data-cursor="pointer">Lookbook</a>
+          <a href="/sobre" className="hover:text-white transition-colors duration-300" data-cursor="pointer">Sobre</a>
+          <a href="/contato" className="hover:text-white transition-colors duration-300" data-cursor="pointer">Contato</a>
+        </nav>
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center mb-24 font-sans text-sm tracking-[0.1em] text-[#E5E5E5] font-light">
           <a 
             href="https://wa.me/5514997182001" 
@@ -30,20 +36,13 @@ export function Footer() {
             WhatsApp
           </a>
           <a 
-            href="https://instagram.com/clebercarrasco" 
+            href="https://instagram.com/cleberccarrasco" 
             target="_blank" 
             rel="noreferrer"
             className="hover:text-white transition-colors duration-300 uppercase"
             data-cursor="pointer"
           >
             Instagram
-          </a>
-          <a 
-            href="/contato"
-            className="hover:text-white transition-colors duration-300 uppercase"
-            data-cursor="pointer"
-          >
-            Contato
           </a>
         </div>
 

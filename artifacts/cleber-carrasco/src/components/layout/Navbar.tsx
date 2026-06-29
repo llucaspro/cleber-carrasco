@@ -24,8 +24,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "COLEÇÃO", href: "/colecao" },
-    { name: "SOBRE", href: "/#sobre" },
-    { name: "CONTATO", href: "/#contato" }
+    { name: "LOOKBOOK", href: "/lookbook" },
+    { name: "SOBRE", href: "/sobre" },
+    { name: "CONTATO", href: "/contato" },
   ];
 
   return (
