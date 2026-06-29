@@ -149,7 +149,7 @@ export default function Lookbook() {
         <p className="font-sans text-[10px] tracking-[0.35em] text-[#767676] uppercase mb-8">
           Editorial Visual
         </p>
-        <h1 ref={titleRef} className="font-serif text-6xl md:text-8xl lg:text-[10rem] tracking-[0.06em] font-light uppercase leading-[0.9] opacity-0 mb-16">
+        <h1 ref={titleRef} className="font-serif text-[clamp(3rem,12vw,9rem)] tracking-[0.06em] font-light uppercase leading-[0.9] opacity-0 mb-16 overflow-hidden">
           Lookbook
         </h1>
 
